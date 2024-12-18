@@ -10,7 +10,7 @@ namespace simple_app.Models
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // You can also use a connection string from a config file instead
-            options.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=postgres");
+            options.UseNpgsql("Host=postgres;Port=5432;Database=postgres;Username=postgres;Password=postgres");
         }
 
         // Optional: OnModelCreating can be added if you want to configure any entity-specific rules

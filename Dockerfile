@@ -11,15 +11,6 @@ RUN dotnet restore
 # Copy the rest of the application code
 COPY . ./
 
-
-
-# Add EF Tools for migration
-RUN dotnet tool install --global dotnet-ef
-ENV PATH="$PATH:/root/.dotnet/tools"
-
-# Run EF migration command
-RUN dotnet ef database update
-
 # Build the application
 RUN dotnet build -c Release -o /app/build
 

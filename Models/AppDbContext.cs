@@ -4,7 +4,7 @@ namespace simple_app.Models
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Person> People { get; set; }
+        public DbSet<Person>? People { get; set; }
 
         // Ensure the OnConfiguring method is correctly setting the options
         protected override void OnConfiguring(DbContextOptionsBuilder options)

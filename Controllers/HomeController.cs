@@ -41,7 +41,7 @@ public class HomeController : Controller
         if (ModelState.IsValid)
         {
             // Add person to the database
-            _context.People.Add(person);
+            _context.People?.Add(person);
             await _context.SaveChangesAsync();
 
             // Optionally, use ViewBag to show a message
@@ -64,7 +64,7 @@ public class HomeController : Controller
 
                 try
                 {
-                    var response = await client.PostAsync("http://localhost:8080/person", content);
+                    var response = await client.PostAsync("http://simple-server:8080/person", content);
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -86,7 +86,7 @@ public class HomeController : Controller
         }
 
         // Fetch the updated list of people and return the view
-        var people = _context.People.ToList();
+        var people = _context.People?.ToList();
         return View(people);
     }
 
